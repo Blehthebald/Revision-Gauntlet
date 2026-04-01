@@ -4,7 +4,7 @@ elo = []
 
 def FiletoArray(filename, arr):
 
-
+   arr.clear()
    with open(filename,'r') as file:
        for line in file:
 
@@ -56,8 +56,8 @@ def RemovePlayer():
    while i < len(players) and not found:
        if name == players[i]:
            found = True
-           players.remove(players[i])
-           elo.remove(elo[i])
+           players.pop(i)
+           elo.pop(i)
            Save()
        i = i +1
 
@@ -186,8 +186,9 @@ def battle():
 
 
 def main():
-
-
+   Load()
+   print(players)
+   print(elo)
    valid = False
    while not valid:
        print("--------------------------------------------------------")
@@ -214,9 +215,7 @@ def main():
 
        else:
            print("Please enter a valid option")
-Load()
 main()
-
 
 
 
